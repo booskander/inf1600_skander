@@ -20,35 +20,27 @@ is_alphabetic_asm:
    # Copiez le parametre dans %dh
 
    # Remplacez cette ligne par votre reponse a Q3
-   mov 1(%esp), %ch
+   movb 4(%esp), %ch
    # Ne pas modifiez les lignes qui precedent
    # excepte aux lignes 10, 11 et 22 tel qu'indique
    # dans les commentaires
    cmpb $'A', %ch
    jb false
+
    cmpb $'Z', %ch
    jbe bye
+
    cmpb $'a', %ch
-   je false
+   jb false
+
    cmpb $'z', %ch
    jbe bye
 
 false:
-   mov $0, %eax
-   # A COMPLETER
-
-
-
-
-   # Ne pas modifiez les lignes qui suivent
-   # excepte a la lignes 52 tel qu'indique
-   # dans les commentaires
-   
-bye:
-
+   movl $0, %eax
    # Q2:
    # Que faut il ajouter la?
    #leave
-
+bye:
    ret
 

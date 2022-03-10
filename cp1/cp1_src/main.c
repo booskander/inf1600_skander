@@ -5,7 +5,7 @@
 #include "c_functions.h"
 #include "asm_functions.h"
 
-#define TEST_Q2_Q4 0
+#define TEST_Q2_Q4 1
 #define TEST_Q5_Q7 0
 #define TEST_Q8 0
 #define TEST_Q9 0
