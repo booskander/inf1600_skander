@@ -19,7 +19,7 @@ iter:
 
    pushl %ecx
    pushl %eax
-   call substitute_asm
+   call substitute_c
    stosb
    popl %eax
    popl %ecx
