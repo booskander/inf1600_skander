@@ -21,6 +21,7 @@ is_alphabetic_asm:
 
    # Remplacez cette ligne par votre reponse a Q3
    movb 4(%esp), %ch
+   movl $1, %eax
    # Ne pas modifiez les lignes qui precedent
    # excepte aux lignes 10, 11 et 22 tel qu'indique
    # dans les commentaires

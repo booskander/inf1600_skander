@@ -78,7 +78,7 @@ char substitute_c(const char src, const unsigned int key){
    return dst;
 }
 
-void caesar_encrypt_c(const char* src, char*dst, 
+void caesar_encrypt_c(const char* src,char*dst, 
                       const unsigned int key){
    unsigned int i = 0;
    while( src[i] != 0 ){
