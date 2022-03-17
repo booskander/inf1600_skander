@@ -5,7 +5,7 @@ caesar_encrypt_asm:
    pushl   %ebp
    movl    %esp,       %ebp
 
-   movl 8(%esp), %esi
+   movl 8(%esp),  %esi
    movl 12(%esp), %edi
    movl 16(%esp), %ecx
 
@@ -21,8 +21,8 @@ iter:
    pushl %eax
    call substitute_c
    stosb
-   popl %eax
-   popl %ecx
+   popl  %eax
+   popl  %ecx
 
    jmp iter
 

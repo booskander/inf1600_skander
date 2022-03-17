@@ -2,11 +2,14 @@
 .globl vigenere_encrypt_asm
 
 az:
-  subl %ecx, %edx
-  jmp iter
+  movl $0, %edx
+  jmp bye
 not_:
   popl %eax
   jmp iter
+fin:
+  popl %eax
+  jmp bye
 
 vigenere_encrypt_asm:
 
@@ -17,12 +20,23 @@ vigenere_encrypt_asm:
   movl 12(%esp),   %edi
   movl 16(%esp),   %edx
   movl 20(%esp),   %ecx
+  movl $0, %eax
+  
 
 iter:
   cld
+
+  cmpl %ecx, %eax # ces lignes la le neuvelent pas se faire executer
+                  # mon code semble fonctionner pour les 8 premiers
+                  # caracteres de la string, mais ne permet pas de revenir
+                  #au premier element apres 8 iterations.    
+  je az
+
+
+  push %eax
   lodsb
   cmpb $0, %al
-  je fin
+  je bye
   
   pushl %edx
   movl (%edx), %edx
@@ -37,24 +51,26 @@ iter:
   popl %edx
   popl %edx
 
-
   pushl %eax
 
-  call is_alphabetic_c
+  call is_alphabetic_asm
+
 
   cmpl $0, %eax
   je not_
 
   popl %eax
+  popl %eax
+
+  addl $1, %eax
 
   addl $4, %edx
 
-  cmpl %edx, %ecx
-  je az
-
   jmp iter
+
+
   
-fin:
+bye:
   movb $0, (%edi)
   leave
   ret
